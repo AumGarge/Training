@@ -1,0 +1,236 @@
+class Calculator:
+    def add(self, x, y):
+        return x + y
+
+    def subtract(self, x, y):
+        return x - y
+
+    def multiply(self, x, y):
+        return x * y
+
+    def divide(self, x, y):
+        if y != 0:
+            return x / y
+        else:
+            return ("Cannot divide by zero.")
+
+# Example usage
+calculator = Calculator()
+
+# Addition
+result = calculator.add(7, 5)
+print("sum is", result)
+
+# Subtraction
+result = calculator.subtract(34, 21)
+print("difference is ", result)
+
+# Multiplication
+result = calculator.multiply(54, 2)
+print("product is", result)
+
+# Division
+result = calculator.divide(144, 2)
+print("Quotient is", result)
+
+
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            return "Cannot pop from an empty stack."
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        else:
+            return "Empty stack."
+
+# Example usage
+stack = Stack()
+stack.push(0)
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(4)
+
+print("Stack size:", stack.size())
+print("Top element:", stack.peek())
+popped_item = stack.pop()
+print("\nPopped item:", popped_item)
+print("\nStack size:", stack.size())
+print("Top element:", stack.peek())
+
+#----------------------------------------
+stack1 = Stack()
+print("\nStack size:", stack1.size())
+popped_item = stack1.pop()
+print("\nPopped item:", popped_item)
+
+
+
+class ShoppingCart:
+    def __init__(self):
+        self.items = []
+
+    def add_item(self, item_name, qty):
+        item = (item_name, qty)
+        self.items.append(item)
+
+    def remove_item(self, item_name):
+        for item in self.items:
+            if item[0] == item_name:
+                self.items.remove(item)
+                break
+
+    def calculate_total(self):
+        total = 0
+        for item in self.items:
+            total += item[1]
+        return total
+
+
+# Example usage
+cart = ShoppingCart()
+
+cart.add_item("Papaya", 100)
+cart.add_item("Guava", 200)
+cart.add_item("Orange", 150)
+
+print("Current Items in Cart:")
+for item in cart.items:
+    print(item[0], "-", item[1])
+
+total_qty = cart.calculate_total()
+print("Total Quantity:", total_qty)
+
+cart.remove_item("Orange")
+
+print("\nUpdated Items in Cart after removing Orange:")
+for item in cart.items:
+    print(item[0], "-", item[1])
+
+total_qty = cart.calculate_total()
+print("Total Quantity:", total_qty)
+
+
+
+class Queue:
+    def __init__(self):
+        self.items = []
+    def enqueue(self, item):
+        self.items.append(item)
+    def dequeue(self):
+        if not self.is_empty():
+            return self.items.pop(0)
+        else:
+            raise IndexError("Cannot dequeue from an empty queue.")
+    def is_empty(self):
+        return len(self.items) == 0
+# Example usage
+queue = Queue()
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+queue.enqueue(40)
+queue.enqueue(50)
+
+print("Current Queue:", queue.items)
+dequeued_item = queue.dequeue()
+print("Dequeued item:", dequeued_item)
+dequeued_item = queue.dequeue()
+print("Dequeued item:", dequeued_item)
+print("Updated Queue:", queue.items)
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Bank:
+    def __init__(self):
+        self.customers = {}
+
+    def create_account(self, account_number, initial_balance=0):
+        if account_number in self.customers:
+            print("Account number already exists.")
+        else:
+            self.customers[account_number] = initial_balance
+            print("Account created successfully.")
+
+    def make_deposit(self, account_number, amount):
+        if account_number in self.customers:
+            self.customers[account_number] += amount
+            print("Deposit successful.")
+        else:
+            print("Account number does not exist.")
+
+    def make_withdrawal(self, account_number, amount):
+        if account_number in self.customers:
+            if self.customers[account_number] >= amount:
+                self.customers[account_number] -= amount
+                print("Withdrawal successful.")
+            else:
+                print("Insufficient funds.")
+        else:
+            print("Account number does not exist.")
+
+    def check_balance(self, account_number):
+        if account_number in self.customers:
+            balance = self.customers[account_number]
+            print(f"Account balance: {balance}")
+        else:
+            print("Account number does not exist.")
+
+
+# Example usage
+bank = Bank()
+acno1= "SB-123"
+damt1 = 1000
+print("New a/c No.: ",acno1,"Deposit Amount:",damt1)
+bank.create_account(acno1, damt1)
+acno2= "SB-124"
+damt2 = 1500
+print("New a/c No.: ",acno2,"Deposit Amount:",damt2)
+bank.create_account(acno2, damt2)
+wamt1 = 600
+print("\nDeposit Rs.",wamt1,"to A/c No.",acno1)
+bank.make_deposit(acno1, wamt1)
+wamt2 = 350
+print("Withdraw Rs.",wamt2,"From A/c No.",acno2)
+bank.make_withdrawal(acno2, wamt2)
+print("A/c. No.",acno1)
+bank.check_balance(acno1)
+print("A/c. No.",acno2)
+bank.check_balance(acno2)
+wamt3 = 1200
+print("Withdraw Rs.",wamt3,"From A/c No.",acno2)
+bank.make_withdrawal(acno2, wamt3)
+acno3 = "SB-134"
+print("A/c. No.",acno3)
+bank.check_balance(acno3)  # Non-existent account number
+
+
+
+
+
