@@ -14,4 +14,4 @@
 
 |Program Function|Link|
 ---|---|
-|Read a file and write contents to another file| [Click here for python file](https://github.com/AumGarge/Training/blob/main/Circle)|
+|Read a file and write contents to another file| [Click here for python file](https://github.com/AumGarge/Training/blob/Handson/FileReadWrite)|
