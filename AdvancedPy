@@ -11,3 +11,70 @@ month = 6;
 year = 2022;            
 print("\nMonth No.: ", month, " Year: ", year);
 print("Check whether the said month and year contains a Monday 13th.: " + test(month, year)); 
+
+//encoded string
+
+input = "Prince000Smith000123"
+
+ 
+
+r = input.replace("000", ", ")
+print(r)
+s = r.split()
+print(s)
+dict1 = {"first_name": " ", "last_name": " ",  "id" : " "}
+for item in s:
+    dict1["first_name"] = s[0].replace(",", "")
+
+    dict1["last_name"] = s[1].replace(",", "")
+
+    dict1["id"] = s[2]
+
+//octal conversion
+print(oct(20000))
+
+//Reverse number
+num = 1009201
+print("Reversed number is:",str(num)[::-1])
+
+
+//Fibonacci using recursion
+def fibo(n):
+   if n <= 1:
+       return n
+   else:
+       return(fibo(n-1) + fibo(n-2))
+
+nterms = 5
+
+
+if nterms <= 0:
+   print("Plese enter a positive integer")
+else:
+   print("Fibonacci sequence:")
+   for i in range(nterms):
+       print(fibo(i))
+
+
+//nth term of fibonacci
+
+def fibo(n):
+	a = 0
+	b = 1
+	if n < 0:
+		print("Incorrect input")
+	elif n == 0:
+		return a
+	elif n == 1:
+		return b
+	else:
+		for i in range(2, n+1):
+			c = a + b
+			a = b
+			b = c
+		return b
+print(fibo(9))
+
+
+
+
