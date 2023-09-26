@@ -1,0 +1,9 @@
+# Creating an output file in writing mode
+output_file = open("output.txt", "w")
+
+# from input file and writing in output file
+with open("Input.txt", "r") as scan:
+	output_file.write(scan.read())
+
+a
+output_file.close()
